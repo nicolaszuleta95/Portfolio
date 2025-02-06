@@ -6,9 +6,6 @@ Los análisis incluyen:
 
 1. Análisis Exploratorio de Datos (EDA)
 2. Modelo de Predicción de Permanencia en el Programa
-3. Segmentación de Atletas
-4. Análisis de Tendencias Deportivas
-5. Análisis Regional del Apoyo Deportivo
 
 ## Dataset
 En este conjunto de datos, se relaciona información general anonimizada de los atletas apoyados por Indeportes Antioquia durante diferentes años, detallando rangos de edad, género, deporte que practican, organización deportiva a la que pertrenecen entre otros datos relevantes.
