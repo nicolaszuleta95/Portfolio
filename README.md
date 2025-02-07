@@ -5,7 +5,7 @@ Repository containing a portfolio of data science projects completed for academi
 
 ### Athletes Antioquia Project
 
-![Athletes per Municipality map]([http://url/to/img.png](https://github.com/nicolaszuleta95/Portfolio/blob/main/atletas_antioquia/data/processed/Captura_mapa.JPG))
+![Athletes per Municipality map](https://github.com/nicolaszuleta95/Portfolio/blob/main/atletas_antioquia/data/processed/Captura_mapa.JPG)
 
 This project aims to analyze the permanence of the athletes and para-athletes supported by the government of Antioquia.
 
