@@ -13,3 +13,12 @@ It includes:
 
 1. Exploratory Data Analysis (EDA).
 2. Prediction Model for Program permanence.
+
+### Bank Review Prediction Project
+
+This project aims to predict the bank rating based on the text of customer reviews using natural language processing (NLP) and machine learning techniques.
+
+It includes:
+
+1. Data Collection and Preprocessing.
+2. Modelling.
