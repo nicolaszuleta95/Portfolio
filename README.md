@@ -16,6 +16,8 @@ It includes:
 
 ### Bank Review Prediction Project
 
+![Bank Review Prediction Project](https://github.com/nicolaszuleta95/Portfolio/blob/main/bank_review_prediction/data/img/image.webp)
+
 This project aims to predict the bank rating based on the text of customer reviews using natural language processing (NLP) and machine learning techniques.
 
 It includes:
