@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-#import shap
+import shap
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import (
@@ -9,19 +9,19 @@ from sklearn.metrics import (
     roc_curve, auc, f1_score, precision_score, recall_score, roc_auc_score
 )
 import sys
-sys.path.append("../")
+sys.path.append("ml_model_evaluator/")
 # ===================== 📥 Cargar modelo y datos =====================
 
 @st.cache_data
 def load_model():
-    with open("..//models//final_model_pipeline.pkl", "rb") as f:
+    with open("ml_model_evaluator/models/final_model_pipeline.pkl", "rb") as f:
         return pickle.load(f)
 
 @st.cache_data
 def load_data():
     from src.preprocessing import prepare_data_app
 
-    df_raw = pd.read_csv("..//data//marketing_campaign.csv", sep=';')
+    df_raw = pd.read_csv("ml_model_evaluator/data/marketing_campaign.csv", sep=';')
     df = prepare_data_app(df_raw)
     return df
 
@@ -67,17 +67,17 @@ cm = confusion_matrix(y, y_preds)
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
 st.pyplot(plt.gcf())
 
-# # ===================== 🧠 SHAP Bar Chart =====================
-# st.subheader("Interpretabilidad (SHAP)")
-# explainer = shap.TreeExplainer(model.named_steps["model"])
-# X_transformed = model.named_steps["preprocessing"].transform(X)
-# feature_names = model.named_steps["preprocessing"].get_feature_names_out()
-# shap_values = explainer.shap_values(X_transformed)
+# ===================== 🧠 SHAP Bar Chart =====================
+st.subheader("Interpretabilidad (SHAP)")
+explainer = shap.TreeExplainer(model.named_steps["model"])
+X_transformed = model.named_steps["preprocessing"].transform(X)
+feature_names = model.named_steps["preprocessing"].get_feature_names_out()
+shap_values = explainer.shap_values(X_transformed)
 
-# plt.figure()
-# shap.summary_plot(shap_values, X_transformed, feature_names=feature_names, plot_type="bar", show=False)
-# st.pyplot(plt.gcf())
+plt.figure()
+shap.summary_plot(shap_values, X_transformed, feature_names=feature_names, plot_type="bar", show=False)
+st.pyplot(plt.gcf())
 
 # ===================== 📂 Descargar modelo =====================
-with open("..//models//final_model_pipeline.pkl", "rb") as f:
+with open("ml_model_evaluator/models/final_model_pipeline.pkl", "rb") as f:
     btn = st.download_button("⬇️ Descargar modelo", f, file_name="final_model_pipeline.pkl")
