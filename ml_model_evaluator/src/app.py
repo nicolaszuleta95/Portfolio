@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import shap
+#import shap
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import (
@@ -67,16 +67,16 @@ cm = confusion_matrix(y, y_preds)
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
 st.pyplot(plt.gcf())
 
-# ===================== 🧠 SHAP Bar Chart =====================
-st.subheader("Interpretabilidad (SHAP)")
-explainer = shap.TreeExplainer(model.named_steps["model"])
-X_transformed = model.named_steps["preprocessing"].transform(X)
-feature_names = model.named_steps["preprocessing"].get_feature_names_out()
-shap_values = explainer.shap_values(X_transformed)
+# # ===================== 🧠 SHAP Bar Chart =====================
+# st.subheader("Interpretabilidad (SHAP)")
+# explainer = shap.TreeExplainer(model.named_steps["model"])
+# X_transformed = model.named_steps["preprocessing"].transform(X)
+# feature_names = model.named_steps["preprocessing"].get_feature_names_out()
+# shap_values = explainer.shap_values(X_transformed)
 
-plt.figure()
-shap.summary_plot(shap_values, X_transformed, feature_names=feature_names, plot_type="bar", show=False)
-st.pyplot(plt.gcf())
+# plt.figure()
+# shap.summary_plot(shap_values, X_transformed, feature_names=feature_names, plot_type="bar", show=False)
+# st.pyplot(plt.gcf())
 
 # ===================== 📂 Descargar modelo =====================
 with open("..//models//final_model_pipeline.pkl", "rb") as f:
