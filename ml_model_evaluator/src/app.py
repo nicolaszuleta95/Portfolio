@@ -33,11 +33,31 @@ y = df["Response"]
 y_probs = model.predict_proba(X)[:, 1]
 y_preds = model.predict(X)
 
+
+st.title("📊 Gráficos comparativos de métricas entre Modelo de Respuesta a Campaña de Marketing")
+
+# ===================== 📈 Comparación de Modelos =====================
+st.header("📊 Comparativa de Modelos")
+
+try:
+    comp_df = pd.read_csv("ml_model_evaluator/results/comparison_results.csv")
+    metricas = ["F1", "ROC AUC", "Precision", "Recall"]
+    comp_melt = comp_df.melt(id_vars="Model", value_vars=metricas, var_name="Métrica", value_name="Valor")
+    plt.figure(figsize=(8, 4))
+    sns.barplot(data=comp_melt, x="Métrica", y="Valor", hue="Model")
+    plt.ylim(0, 1)
+    plt.title("Comparación de Modelos")
+    plt.legend(title="Modelo")
+    st.pyplot(plt.gcf())
+except Exception as e:
+    st.info("No se pudo cargar la comparación de modelos.")
+
+
 # ===================== 🖥️ Título =====================
-st.title("📊 Dashboard - Modelo de Respuesta a Campaña")
+st.header("📊 Dashboard - Mejor Modelo de Respuesta a Campaña")
 
 # ===================== 📈 Métricas =====================
-st.header("✅ Métricas Generales")
+st.subheader("✅ Métricas Generales")
 
 f1 = f1_score(y, y_preds)
 prec = precision_score(y, y_preds)
@@ -81,3 +101,7 @@ st.pyplot(plt.gcf())
 # ===================== 📂 Descargar modelo =====================
 with open("ml_model_evaluator/models/final_model_pipeline.pkl", "rb") as f:
     btn = st.download_button("⬇️ Descargar modelo", f, file_name="final_model_pipeline.pkl")
+
+# ===================== 📂 Descargar Reporte de Mejor Modelo =====================
+with open("ml_model_evaluator/notebooks/model_report.ipynb", "rb") as f:
+    btn = st.download_button("⬇️ Descargar reporte", f, file_name="model_report.ipynb")
