@@ -16,9 +16,10 @@ Welcome to my professional portfolio, where I share data science, machine learni
 
 **Incluye / Includes:**
 - Comparación de modelos: Random Forest, XGBoost, SVM, etc.  
-- Validación cruzada y métricas: accuracy, F1, AUC, log-loss.  
-- Dashboard interactivo con Streamlit.  
-- Importancia de variables + interpretación con SHAP.  
+- Validación cruzada y métricas: accuracy, F1, AUC.
+- Importancia de variables + interpretación con SHAP.
+- Dashboard interactivo con Streamlit.
+  
 
 📂 [`/ml_model_evaluator`](ml_model_evaluator/)
 
