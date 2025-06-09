@@ -39,9 +39,8 @@ Welcome to my professional portfolio, where I share data science, machine learni
 ## 🛠 Tecnologías / Technologies
 
 - `Python`, `Pandas`, `NumPy`, `Scikit-learn`, `XGBoost`, `LightGBM`, `CatBoost`
-- `Streamlit`, `Dash`, `Matplotlib`, `Seaborn`, `Plotly`, `SHAP`
-- `TensorFlow`, `Keras`, `PyTorch` (para proyectos de deep learning)
-- `Git`, `VS Code`, `Jupyter Notebook`, `Docker` (cuando aplica)
+- `Streamlit`, `Matplotlib`, `Seaborn`, `Plotly`, `SHAP`
+- `Git`, `VS Code`, `Jupyter Notebook`
 
 ---
 
@@ -66,4 +65,3 @@ I’m a data science enthusiast with experience in exploratory analysis, predict
 ---
 
 Gracias por visitar / Thanks for visiting! 🚀
-
